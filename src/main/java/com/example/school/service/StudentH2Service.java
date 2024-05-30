@@ -77,13 +77,13 @@ public class StudentH2Service implements StudentRepository {
 
     public Student updateStudent(int studentId, Student student) {
         if (student.getStudentName() != null) {
-            db.update("update STUDENT set studentName where studentId = ?", student.getStudentName(), studentId);
+            db.update("update STUDENT set studentName = ? where studentId = ?", student.getStudentName(), studentId);
         }
         if (student.getGender() != null) {
-            db.update("update STUDENT set gender where studentId = ?", student.getGender(), studentId);
+            db.update("update STUDENT set gender = ? where studentId = ?", student.getGender(), studentId);
         }
         if (student.getStandard() != 0) {
-            db.update("update STUDENT set standard where studentId = ?", student.getStandard(), studentId);
+            db.update("update STUDENT set standard = ? where studentId = ?", student.getStandard(), studentId);
         }
         return getStudentById(studentId);
 
